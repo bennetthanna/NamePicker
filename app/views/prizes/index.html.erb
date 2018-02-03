@@ -1,0 +1,16 @@
+<h1>Listing prizes</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @prizes.each do |prize| %>
+    <tr>
+      <td><%= prize.title %></td>
+      <td><%= prize.text %></td>
+      <td><%= link_to 'Show', article_path(prize) %></td>
+    </tr>
+  <% end %>
+</table>
