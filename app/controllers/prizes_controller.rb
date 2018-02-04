@@ -8,6 +8,7 @@ class PrizesController < ApplicationController
   end
 
   def new
+    @prize = Prize.new
   end
 
   def create

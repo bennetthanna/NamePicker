@@ -1,4 +1,4 @@
-<%= form_with scope: :prize, url: prizees_path, local: true do |form| %>
+<%= form_for @prize, url: prizes_path, local: true do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
