@@ -14,8 +14,11 @@ class PrizesController < ApplicationController
   def create
     @prize = Prize.new(prize_params)
 
-    @prize.save
-    redirect_to @prize
+    if @prize.save
+      redirect_to @prize
+    else
+      render 'new'
+    end
   end
 
   private
