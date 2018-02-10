@@ -1,0 +1,18 @@
+<%= form_for @contestant, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :prizes %><br>
+    <%= check_box_tag(:go_pro) %>
+    <%= label_tag(:go_pro, "Go Pro") %><br>
+    <%= check_box_tag(:gift_card) %>
+    <%= label_tag(:gift_card, "Gift card") %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
