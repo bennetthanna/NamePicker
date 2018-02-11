@@ -1,0 +1,21 @@
+<h1>Listing contestants</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Prizes</th>
+  </tr>
+ 
+  <% @contestants.each do |contestant| %>
+    <tr>
+      <td><%= contestant.name %></td>
+      <% contestant.prize_ids.each do |prize_id| %>
+        <td>
+          <% @prize = Prize.find(prize_id) %>
+          <%= @prize.title %>
+        </td>
+      <% end %>
+      <td><%= link_to 'Show', contestant_path(contestant) %></td>
+    </tr>
+  <% end %>
+</table>
