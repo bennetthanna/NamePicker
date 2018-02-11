@@ -3,14 +3,13 @@
     <%= form.label :name %><br>
     <%= form.text_field :name %>
   </p>
- 
-  <p>
-    <%= form.label :prizes %><br>
-    <%= check_box_tag(:go_pro) %>
-    <%= label_tag(:go_pro, "Go Pro") %><br>
-    <%= check_box_tag(:gift_card) %>
-    <%= label_tag(:gift_card, "Gift card") %>
-  </p>
+
+  <% @prizes.each do |prize| %>
+    <tr>
+      <%= check_box_tag('prize_ids[]', prize.id) %>
+      <%= label_tag('prize_name[]', prize.title) %><br>
+    </tr>
+  <% end %>
  
   <p>
     <%= form.submit %>
