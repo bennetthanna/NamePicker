@@ -4,6 +4,7 @@
     <%= form.text_field :name %>
   </p>
 
+  <%= form.label :prizes %><br>
   <% @prizes.each do |prize| %>
     <tr>
       <%= check_box_tag('prize_ids[]', prize.id) %>
