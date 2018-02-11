@@ -5,5 +5,11 @@
  
 <p>
   <strong>Prizes:</strong>
-  <%= @contestant.prize_ids %>
+<!--   <%= @contestant.prize_ids %> -->
+  <% @contestant.prize_ids.each do |prize_id| %>
+    <tr>
+      <% @prize = Prize.find(prize_id) %>
+      <%= @prize.title %><br>
+    </tr>
+  <% end %>
 </p>
