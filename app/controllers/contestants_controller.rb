@@ -8,8 +8,8 @@ class ContestantsController < ApplicationController
   end
 
   def new
+    # @prizes = Prize.all
     @contestant = Contestant.new
-    @prizes = Prize.all
   end
 
   def create
@@ -19,8 +19,11 @@ class ContestantsController < ApplicationController
     @contestant = Contestant.new(contestant_params)
     @contestant.prize_ids = params[:prize_ids]
 
-    @contestant.save
-    redirect_to @contestant
+    if @contestant.save
+      redirect_to @contestant
+    else
+      render 'new'
+    end
   end
 
   private
