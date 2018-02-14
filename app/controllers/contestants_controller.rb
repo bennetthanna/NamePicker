@@ -8,8 +8,11 @@ class ContestantsController < ApplicationController
   end
 
   def new
-    # @prizes = Prize.all
     @contestant = Contestant.new
+  end
+
+  def edit
+    @contestant = Contestant.find(params[:id])
   end
 
   def create
@@ -20,6 +23,17 @@ class ContestantsController < ApplicationController
       redirect_to @contestant
     else
       render 'new'
+    end
+  end
+
+  def update
+    @contestant = Contestant.find(params[:id])
+    @contestant.prize_ids = params[:prize_ids]
+
+    if @contestant.update(contestant_params)
+      redirect_to @contestant
+    else
+      render 'edit'
     end
   end
 
