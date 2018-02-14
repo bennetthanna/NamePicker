@@ -1,27 +1,59 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 30px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+h1 {
+  font-family: arial, sans-serif;
+}
+</style>
+
 <h1>Listing contestants</h1>
 
-<%= link_to 'New contestant', new_contestant_path %>
+<%= link_to 'New contestant', new_contestant_path, :style=>
+  'font-family: arial, sans-serif; 
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;' %>
 
 <table>
   <tr>
     <th>Name</th>
     <th>Prizes</th>
+    <th>Edit</th>
   </tr>
  
   <% @contestants.each do |contestant| %>
     <tr>
       <td><%= contestant.name %></td>
+      <td>
       <% contestant.prize_ids.each do |prize_id| %>
-        <td>
+        <p>
           <% @prize = Prize.find(prize_id) %>
           <%= @prize.title %>
-        </td>
+        </p>
       <% end %>
-      <td><%= link_to 'Show', contestant_path(contestant) %></td>
-      <td><%= link_to 'Edit', edit_contestant_path(contestant) %></td>
-      <td><%= link_to 'Destroy', contestant_path(contestant),
+      </td>
+      <td><%= link_to 'Show', contestant_path(contestant) %> |
+      <%= link_to 'Edit', edit_contestant_path(contestant) %> |
+      <%= link_to 'Destroy', contestant_path(contestant),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' } %>      
+      </td>
     </tr>
   <% end %>
 </table>
