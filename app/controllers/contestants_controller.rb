@@ -37,6 +37,13 @@ class ContestantsController < ApplicationController
     end
   end
 
+  def destroy
+    @contestant = Contestant.find(params[:id])
+    @contestant.destroy
+
+    redirect_to contestants_path
+  end
+
   private
 
   def contestant_params
