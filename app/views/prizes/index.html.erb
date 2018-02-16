@@ -1,21 +1,49 @@
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 30px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 8px;
+}
+
+h1 {
+  font-family: arial, sans-serif;
+}
+</style>
+
 <h1>Listing prizes</h1>
  
-<%= link_to 'New prize', new_prize_path %>
+<%= link_to 'New prize', new_prize_path, :style=>
+  'font-family: arial, sans-serif; 
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;'%>
 
 <table>
   <tr>
     <th>Title</th>
     <th>Text</th>
-    <th colspan="2"></th>
+    <th>Edit</th>
   </tr>
  
   <% @prizes.each do |prize| %>
     <tr>
       <td><%= prize.title %></td>
       <td><%= prize.text %></td>
-      <td><%= link_to 'Show', prize_path(prize) %></td>
-      <td><%= link_to 'Edit', edit_prize_path(prize) %></td>
-      <td><%= link_to 'Destroy', prize_path(prize),
+      <td><%= link_to 'Show', prize_path(prize) %> |
+      <%= link_to 'Edit', edit_prize_path(prize) %> |
+      <%= link_to 'Destroy', prize_path(prize),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
