@@ -1,36 +1,3 @@
-<%= form_for @contestant do |form| %>
-
-  <% if @contestant.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@contestant.errors.count, "error") %> prohibited
-        this contestant from being saved:
-      </h2>
-      <ul>
-        <% @contestant.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
-
-  <%= form.label :prizes %><br>
-  <% @prizes = Prize.all %>
-  <% @prizes.each do |prize| %>
-    <tr>
-      <%= check_box_tag('prize_ids[]', prize.id) %>
-      <%= label_tag('prize_name[]', prize.title) %><br>
-    </tr>
-  <% end %>
- 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
 
 <%= link_to 'Back', contestants_path %>
