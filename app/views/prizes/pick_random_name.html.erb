@@ -1,0 +1,8 @@
+<p>PICK RANDOM NAME</p>
+<%= @prize.title %>
+<% @contestants = Contestant.all %>
+<% @contestants.each do |contestant| %>
+    <% if contestant.prize_ids.include? @prize.id.to_s %>
+    	<p><%= contestant.name %></p>
+	<% end %>
+<% end %>

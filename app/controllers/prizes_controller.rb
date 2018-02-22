@@ -42,6 +42,10 @@ class PrizesController < ApplicationController
     redirect_to prizes_path
   end
 
+  def pick_random_name
+    @prize = Prize.find(params[:id])
+  end
+
   private
 
   def prize_params
