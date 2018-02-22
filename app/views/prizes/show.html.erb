@@ -15,6 +15,14 @@ p {
   <%= @prize.text %>
 </p>
 
+<p><strong>Contestants:</strong></p>
+<% @contestants = Contestant.all %>
+<% @contestants.each do |contestant| %>
+    <% if contestant.prize_ids.include? @prize.id.to_s %>
+      <p><%= contestant.name %></p>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_prize_path(@prize), :style=>
   'font-family: arial, sans-serif; 
   text-decoration: none;
