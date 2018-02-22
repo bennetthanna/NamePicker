@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :prizes
+  resources :prizes do
+    member do
+      get 'pick_random_name'
+    end
+  end
   resources :contestants
 
   root 'welcome#index'
