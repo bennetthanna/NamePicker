@@ -44,6 +44,14 @@ class PrizesController < ApplicationController
 
   def pick_random_name
     @prize = Prize.find(params[:id])
+    @contestants = Contestant.all
+    prize_contestants = []
+    @contestants.each do |contestant|
+      if contestant.prize_ids.include? @prize.id.to_s
+        prize_contestants << contestant.name
+      end
+    end
+    @winner = prize_contestants.sample
   end
 
   private
