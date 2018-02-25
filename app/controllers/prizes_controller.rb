@@ -5,6 +5,13 @@ class PrizesController < ApplicationController
 
   def show
     @prize = Prize.find(params[:id])
+    @prize_contestants = []
+    @contestants = Contestant.all
+    @contestants.each do |contestant|
+      if contestant.prize_ids.include? @prize.id.to_s
+        @prize_contestants << contestant.name
+      end
+    end
   end
 
   def new

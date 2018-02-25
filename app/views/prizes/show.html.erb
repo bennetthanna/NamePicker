@@ -16,11 +16,8 @@ p {
 </p>
 
 <p><strong>Contestants:</strong></p>
-<% @contestants = Contestant.all %>
-<% @contestants.each do |contestant| %>
-    <% if contestant.prize_ids.include? @prize.id.to_s %>
-      <p><%= contestant.name %></p>
-  <% end %>
+<% @prize_contestants.each do |contestant| %>
+  <p><%= contestant %></p>
 <% end %>
 
 <%= link_to 'Edit', edit_prize_path(@prize), :style=>
