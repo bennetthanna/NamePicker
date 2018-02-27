@@ -5,6 +5,10 @@ class ContestantsController < ApplicationController
 
   def show
     @contestant = Contestant.find(params[:id])
+    @prizes = []
+    @contestant.prize_ids.each do |prize_id|
+      @prizes << Prize.find(prize_id).title
+    end
   end
 
   def new

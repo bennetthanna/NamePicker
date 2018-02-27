@@ -12,11 +12,8 @@ p {
  
 <p>
   <strong>Prizes:</strong>
-  <% @contestant.prize_ids.each do |prize_id| %>
-    <tr>
-      <% @prize = Prize.find(prize_id) %>
-      <%= @prize.title %><br>
-    </tr>
+  <% @prizes.each do |prize| %>
+    <p><%= prize %></p>
   <% end %>
 </p>
 
